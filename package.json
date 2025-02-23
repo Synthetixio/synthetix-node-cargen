@@ -1,0 +1,21 @@
+{
+  "name": "@synthetixio/synthetix-node-cargen",
+  "version": "0.1.0",
+  "publishConfig": {
+    "access": "public"
+  },
+  "main": "generateCarBlob.js",
+  "files": [
+    "./*.js"
+  ],
+  "repository": "github:Synthetixio/synthetix-node-cargen",
+  "license": "MIT",
+  "dependencies": {
+    "@helia/car": "^4.0.2",
+    "@helia/unixfs": "^4.0.2",
+    "@ipld/car": "^5.4.0",
+    "helia": "^5.2.0"
+  },
+  "bin": "./generateCarBlob.js",
+  "packageManager": "yarn@4.6.0"
+}
