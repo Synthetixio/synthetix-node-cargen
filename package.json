@@ -4,7 +4,8 @@
   "publishConfig": {
     "access": "public"
   },
-  "main": "generateCarBlob.js",
+  "main": "bin.js",
+  "type": "module",
   "files": [
     "./*.js"
   ],
@@ -16,6 +17,6 @@
     "@ipld/car": "^5.4.0",
     "helia": "^5.2.0"
   },
-  "bin": "./generateCarBlob.js",
+  "bin": "./bin.js",
   "packageManager": "yarn@4.6.0"
 }

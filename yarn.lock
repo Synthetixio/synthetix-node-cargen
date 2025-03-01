@@ -1266,7 +1266,7 @@ __metadata:
     "@ipld/car": "npm:^5.4.0"
     helia: "npm:^5.2.0"
   bin:
-    synthetix-node-cargen: ./generateCarBlob.js
+    synthetix-node-cargen: ./bin.js
   languageName: unknown
   linkType: soft
 
