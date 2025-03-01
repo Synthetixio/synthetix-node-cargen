@@ -12,6 +12,13 @@
   ],
   "repository": "github:Synthetixio/synthetix-node-cargen",
   "license": "MIT",
+  "scripts": {
+    "postpublish": "git push --follow-tags",
+    "postversion": "npm publish",
+    "patch": "npm version patch",
+    "minor": "npm version minor",
+    "major": "npm version major"
+  },
   "dependencies": {
     "@helia/car": "^4.0.2",
     "@helia/unixfs": "^4.0.2",
