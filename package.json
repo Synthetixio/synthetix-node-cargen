@@ -4,8 +4,9 @@
   "publishConfig": {
     "access": "public"
   },
-  "main": "bin.js",
   "type": "module",
+  "main": "index.js",
+  "bin": "./bin.js",
   "files": [
     "./*.js"
   ],
@@ -17,6 +18,5 @@
     "@ipld/car": "^5.4.0",
     "helia": "^5.2.0"
   },
-  "bin": "./bin.js",
   "packageManager": "yarn@4.6.0"
 }
