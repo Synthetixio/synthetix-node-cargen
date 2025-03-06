@@ -24,6 +24,12 @@ async function getFilesRecursive(dir) {
   return files.flat();
 }
 
+async function checkIndexHtmlAbsolutePaths(filePath) {
+  const fileContent = await fs.readFile(filePath, 'utf-8');
+  const absolutePathRegex = /\b(src|href)="\/[^"]+"/g;
+  const matches = fileContent.match(absolutePathRegex);
+  return matches || [];
+}
 
 export async function generate(srcDir, dstDir) {
   if (!srcDir || !dstDir) {
@@ -31,8 +37,16 @@ export async function generate(srcDir, dstDir) {
   }
 
   const allFiles = await getFilesRecursive(srcDir);
-  if (!allFiles.some((file) => file.endsWith('index.html'))) {
+  const indexHtmlPath = allFiles.find((file) => file.endsWith('index.html'));
+  if (!indexHtmlPath) {
     throw new Error('Directory must contain an "index.html" file');
+  }
+
+  const absolutePaths = await checkIndexHtmlAbsolutePaths(indexHtmlPath);
+  if (absolutePaths.length > 0) {
+    throw new Error(
+      `Error: Absolute paths found in index.html: ${absolutePaths.join(', ')}. Please replace them with relative paths.`
+    );
   }
 
   const inputFiles = await Promise.all(
